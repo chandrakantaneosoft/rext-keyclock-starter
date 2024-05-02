@@ -22,13 +22,21 @@ const GuestGuard = (props: GuestGuardProps) => {
       return
     }
 
-    if (window.localStorage.getItem('userData')) {
-      router.replace('/')
-    }
+    // if (window.localStorage.getItem('userData')) {
+    //   console.log("if guest guard");
+    //   router.replace('/')
+    // } else {
+    //   console.log(router.route);
+    //   console.log(children);
+    //   console.log("else guest guard");
+    // }
+
+    // router.replace('/');
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.route])
+  })
 
   if (auth.loading || (!auth.loading && auth.user !== null)) {
+    console.log("else guest guard 2");
     return fallback
   }
 

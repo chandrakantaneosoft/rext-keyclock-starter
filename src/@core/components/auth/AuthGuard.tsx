@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 
 // ** Hooks Import
 import { useAuth } from 'src/hooks/useAuth'
+import { useSession } from 'next-auth/react'
 
 interface AuthGuardProps {
   children: ReactNode
@@ -14,8 +15,11 @@ interface AuthGuardProps {
 
 const AuthGuard = (props: AuthGuardProps) => {
   const { children, fallback } = props
-  const auth = useAuth()
-  const router = useRouter()
+  const auth = useAuth();
+  const router = useRouter();
+  const sessionDetails = useSession();
+  console.log("session details");
+  console.log(sessionDetails);
 
   useEffect(
     () => {
@@ -23,7 +27,7 @@ const AuthGuard = (props: AuthGuardProps) => {
         return
       }
 
-      if (auth.user === null && !window.localStorage.getItem('userData')) {
+      if (sessionDetails.data?.user === null) {
         if (router.asPath !== '/') {
           router.replace({
             pathname: '/login',

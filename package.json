@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3005",
     "build": "next build",
     "start": "next start",
     "export": "next export",
@@ -50,6 +50,7 @@
     "jsonwebtoken": "8.5.1",
     "keen-slider": "6.8.5",
     "next": "13.2.4",
+    "next-auth": "^4.24.7",
     "nprogress": "0.2.0",
     "payment": "2.4.6",
     "prismjs": "1.29.0",

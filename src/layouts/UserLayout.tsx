@@ -51,6 +51,10 @@ const UserLayout = ({ children, contentHeightFixed }: Props) => {
     settings.layout = 'vertical'
   }
 
+  console.log("user layout");
+  console.log(hidden);
+  console.log(settings);
+
   return (
     <Layout
       hidden={hidden}
@@ -90,7 +94,7 @@ const UserLayout = ({ children, contentHeightFixed }: Props) => {
       })}
     >
       {children}
-      
+
     </Layout>
   )
 }
