@@ -26,7 +26,7 @@ export default function Login() {
     return (
         <>
             <p>SIgn in using key click</p>
-            <Button variant="outlined" onClick={() => signIn("keycloak")}>Outlined</Button>
+            <Button variant="outlined" onClick={() => signIn("keycloak")}>Keyclock Sign in</Button>
 
         </>
     );

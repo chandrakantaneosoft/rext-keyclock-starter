@@ -94,8 +94,11 @@ const Home = (props) => {
 }
 
 export default Home
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(context: any,) {
   console.log("getServerSideProps");
+  const { req } = context;
+  const cookies = req.cookies;
+
   try {
     let userSession: any = await getServerSession(
       context.req,
@@ -117,6 +120,7 @@ export async function getServerSideProps(context: any) {
     }
     return {
       props: {
+        cookies,
         session: {
           ...userSession,
           error: false,

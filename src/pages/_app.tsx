@@ -65,6 +65,10 @@ import '../../styles/globals.css'
 import { SessionProvider } from "next-auth/react";
 import { getServerSession } from "next-auth";
 import { useSession } from 'next-auth/react';
+import type { NextRequest } from "next/server";
+import { redirect } from 'next/navigation';
+import { GetServerSideProps } from 'next/types';
+// import { cookies } from "next/headers";
 
 
 // ** Extend App Props with Emotion
@@ -142,7 +146,19 @@ const App = (props: ExtendedAppProps) => {
     const authGuard = props.pageProps.session?.user ? true : false;
     const guestGuard = props.pageProps.session?.user ? false : true;
 
-    const aclAbilities = defaultACLObj
+    // let token =
+    //     request.cookies.get("next-auth.session-token") ||
+    //     request.cookies.get("__Secure-next-auth.session-token");
+
+    // const cookies = parseCookies();
+    // const token = cookies['next-auth.session-token'] || cookies['__Secure-next-auth.session-token'];
+    // const cookieStore = cookies();
+    // const token = cookieStore.get("next-auth.session-token") || cookieStore.get("__Secure-next-auth.session-token");
+
+
+    // console.log(token);
+    const aclAbilities = defaultACLObj;
+
 
 
     // const authGuard = true;
@@ -170,10 +186,10 @@ const App = (props: ExtendedAppProps) => {
                     {({ settings }) => {
                         return (
                             <SessionProvider session={pageProps.session}>
-                                <p>working</p>
+                                {/* <p>working</p>
 
                                 <p>authGuard {authGuard ? 'authguard on' : 'auth guard off'}</p>
-                                <p>guestGuard {guestGuard ? 'guestGuard on' : 'guestGuard off'}</p>
+                                <p>guestGuard {guestGuard ? 'guestGuard on' : 'guestGuard off'}</p> */}
                                 <ThemeComponent settings={settings}>
 
                                     {/* <Guard authGuard={authGuard} guestGuard={guestGuard}> */}

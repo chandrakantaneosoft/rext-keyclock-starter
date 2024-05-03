@@ -27,9 +27,10 @@ import { useSettings } from 'src/@core/hooks/useSettings'
 interface Props {
   children: ReactNode
   contentHeightFixed?: boolean
+  props: any
 }
 
-const UserLayout = ({ children, contentHeightFixed }: Props) => {
+const UserLayout = ({ children, contentHeightFixed, props }: Props) => {
   // ** Hooks
   const { settings, saveSettings } = useSettings()
 
@@ -54,6 +55,7 @@ const UserLayout = ({ children, contentHeightFixed }: Props) => {
   console.log("user layout");
   console.log(hidden);
   console.log(settings);
+  console.log(props);
 
   return (
     <Layout
